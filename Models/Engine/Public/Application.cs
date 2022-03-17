@@ -75,13 +75,3 @@ public class Application
     public int? VirusTotalScanResultsId { get; set; }
     public int? ExploitReportId { get; set; }
 }
-
-
-public enum CpuArch
-{
-    x86,
-    x64,
-    aarch32,
-    aarch64,
-    arm64
-}
