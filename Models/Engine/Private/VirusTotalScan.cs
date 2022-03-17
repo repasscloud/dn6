@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Models.Engine.Private;
 
 [Index(nameof(UUID), nameof(HashScanned), IsUnique = true)]
-public class VirusTotalScanResult
+public class VirusTotalScan
 {
     public int Id { get; set; }
     
