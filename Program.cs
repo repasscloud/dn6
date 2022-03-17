@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using ApplicationData;
+using EngineData;
+using SharedData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +28,15 @@ builder.Services.AddSwaggerGen(c =>
         Description = "Basic Authorization header using the Bearer scheme."
     });
 });
-builder.Services.AddDbContext<ApplicationDataContext>(options =>
+builder.Services.AddDbContext<EngineDataContext>(options =>
+{
+    options
+        .UseNpgsql(builder.Configuration.GetConnectionString("DevDb"))
+        .UseSnakeCaseNamingConvention()
+        .UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
+        .EnableSensitiveDataLogging();
+});
+builder.Services.AddDbContext<SharedDataContext>(options =>
 {
     options
         .UseNpgsql(builder.Configuration.GetConnectionString("DevDb"))
