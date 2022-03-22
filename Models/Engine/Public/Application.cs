@@ -13,21 +13,21 @@ public class Application
     public Guid UUID { get; set; }
 
     [Required]
-    public string UID { get; set; }
-    public string LastUpdate { get; set; }  // yyyyMMdd
+    public string UID { get; set; } = null!;
+    public string LastUpdate { get; set; } = null!;  // yyyyMMdd
 
     [Required]
     public int ApplicationCategoryId { get; set; }
 
     [Required]
-    public string Publisher { get; set; }
+    public string Publisher { get; set; } = null!;
 
     [Required]
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
 
     [Required]
-    public string Version { get; set; }
-    public string Copyright { get; set; }
+    public string Version { get; set; } = null!;
+    public string Copyright { get; set; } = null!;
     public bool LicenseAcceptRequired { get; set; }
     public bool RebootRequired { get; set; }
     public int LanguageId { get; set; }
@@ -36,15 +36,15 @@ public class Application
     public int CpuArchId { get; set; }
 
     [Required]
-    public string Filename { get; set; }
+    public string Filename { get; set; } = null!;
 
     [Required]
-    public string Sha256 { get; set; }
-    public string FollowUri { get; set; }
-    public string AbsoluteUri { get; set; }
+    public string Sha256 { get; set; } = null!;
+    public string FollowUri { get; set; } = null!;
+    public string AbsoluteUri { get; set; } = null!;
 
     public int ExecutableId { get; set; }  // msi, exe, msix, zip, script
-    public string InstallCmd { get; set; }
+    public string InstallCmd { get; set; } = null!;
     public string? InstallArgs { get; set; }
     public string? InstallScript { get; set; }  // ie - adobe that requires an install script to be passed to the pre-requirements first
     public string? DisplayName { get; set; }
@@ -58,16 +58,16 @@ public class Application
     public string? UninstallArgs { get; set; }
     public string? UninstallScript { get; set; }
 
-    public string Homepage { get; set; }
-    public string Icon { get; set; }
+    public string Homepage { get; set; } = null!;
+    public string Icon { get; set; } = null!;
     public string? Docs { get; set; }
     public string? License { get; set; }
-    public string[] Tags { get; set; }
-    public string Summary { get; set; }
+    public string[] Tags { get; set; } = null!;
+    public string Summary { get; set; } = null!;
 
     public int TransferMethodId { get; set; }  // mc, ftp, sftp, ftpes, http, https, s3, etc
     public int LocaleId { get; set; }          // provider and the place
-    public string UriPath { get; set; }
+    public string UriPath { get; set; } = null!;
 
     public bool Enabled { get; set; }
     public string[]? DependsOn { get; set; }

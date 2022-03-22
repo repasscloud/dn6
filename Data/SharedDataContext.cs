@@ -16,5 +16,6 @@ namespace SharedData
         public DbSet<Locale> Locales { get; set; }
         public DbSet<PackageDetection> PackageDetections { get; set; }
         public DbSet<TransferMethod> TransferMethods { get; set; }
+        public DbSet<Country> Countries { get; set; }
     }
 }
