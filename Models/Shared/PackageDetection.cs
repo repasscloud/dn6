@@ -9,5 +9,5 @@ public class PackageDetection
 {
     public int Id { get; set; }
     [Required]
-    public string Method { get; set; }  // registry, fileversion, file, script
+    public string Method { get; set; } = null!; // registry, fileversion, file, script
 }

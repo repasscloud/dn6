@@ -10,5 +10,5 @@ public class CpuArch
     public int Id { get; set; }
 
     [Required]
-    public string Arch { get; set; }  // x86, x64, arm64, aarch32, aarch64
+    public string Arch { get; set; } = null!; // x86, x64, arm64, aarch32, aarch64
 }

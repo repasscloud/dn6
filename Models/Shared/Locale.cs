@@ -9,6 +9,6 @@ public class Locale
 {
     public int Id { get; set; }
     [Required]
-    public string Provider { get; set; }
-    public string ProviderCode { get; set; }
+    public string Provider { get; set; } = null!;
+    public string ProviderCode { get; set; } = null!;
 }

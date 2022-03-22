@@ -9,5 +9,5 @@ public class Language
 {
     public int Id { get; set; }
     [Required]
-    public string Lcid { get; set; }
+    public string Lcid { get; set; } = null!;
 }

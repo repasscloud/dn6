@@ -9,7 +9,7 @@ public class TransferMethod
 {
     public int Id { get; set; }
     [Required]
-    public string Method { get; set; }
+    public string Method { get; set; } = null!;
 }
 
 // public enum XftCode
