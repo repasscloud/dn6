@@ -13,12 +13,12 @@ public class VirusTotalScan
     public Guid UUID { get; set; }
 
     [Required]
-    public string HashScanned { get; set; }    // SHA256
+    public string HashScanned { get; set; } = null!;    // SHA256
 
     [Required]
-    public string Filename { get; set; }    // filename of object scanned
-    public string Tlsh { get; set; }  // $response.data.attributes.tlsh
-    public string Vhash { get; set; }  // $response.data.attributes.vhash
+    public string Filename { get; set; } = null!;    // filename of object scanned
+    public string Tlsh { get; set; } = null!;  // $response.data.attributes.tlsh
+    public string Vhash { get; set; } = null!;  // $response.data.attributes.vhash
     public int StatsHarmless { get; set; }  // $response.data.attributes.last_analysis_stats.harmless
     public int StatsTypeUnsupported { get; set; }  // $response.data.attributes.last_analysis_stats.type-unsupported
     public int StatsSuspicious { get; set; }  // $response.data.attributes.last_analysis_stats.suspicious
