@@ -1,11 +1,26 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;  //👈 new code
 using EngineData;
 using SharedData;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+//👇 new code
+// 1. Add Authentication Services
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.Authority = "https://dev-1jeztw84.au.auth0.com/";
+    options.Audience = "https://spiral-starlet4/api";
+});
+//👆 new code
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -27,6 +42,28 @@ builder.Services.AddSwaggerGen(c =>
         In = ParameterLocation.Header,
         Description = "Basic Authorization header using the Bearer scheme."
     });
+
+    //👇 new code
+    var securitySchema = new OpenApiSecurityScheme
+    {
+        Description = "Using the Authorization header with the Bearer scheme.",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        Reference = new OpenApiReference
+        {
+        Type = ReferenceType.SecurityScheme,
+        Id = "Bearer"
+        }
+    };
+    c.AddSecurityDefinition("Bearer", securitySchema);
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            { securitySchema, new[] { "Bearer" } }
+        });
+    //👆 new code
 });
 builder.Services.AddDbContext<EngineDataContext>(options =>
 {
@@ -65,6 +102,9 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = "";
     });
 }
+
+// 2. Enable authentication middleware
+app.UseAuthentication();  //👈 new code
 
 app.UseAuthorization();
 

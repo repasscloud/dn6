@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EngineData;
 using Models.Engine.Public;
+using Microsoft.AspNetCore.Authorization;  //👈 new code
 
 namespace dn6.Controllers
 {
@@ -24,6 +25,7 @@ namespace dn6.Controllers
 
         // GET: api/Applications
         [HttpGet]
+        [Authorize]  //👈 new code
         public async Task<ActionResult<IEnumerable<Application>>> GetApplications()
         {
             return await _context.Applications.ToListAsync();
