@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using EngineData;
@@ -46,12 +47,12 @@ builder.Services.AddDbContext<SharedDataContext>(options =>
 });
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-
-// customers interface context
-    //webApplicationBuilder.Services.AddDbContext<ApplicationDatasContext>(options =>
-    //{
-    //    options.UseNpgsql(webApplicationBuilder.Configuration.GetConnectionString("DevDb"));
-    //});
+    builder.Services.AddCors();
+    builder.Services.AddControllers().AddJsonOptions(x => 
+    {
+        // serialize enums as strings in api responses (e.g. Role)
+        x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
 
 
 var app = builder.Build();
@@ -70,4 +71,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.Run("http://localhost:4000");
