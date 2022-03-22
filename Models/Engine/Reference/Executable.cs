@@ -9,5 +9,5 @@ public class Executable
 {
     public int Id { get; set; }
     [Required]
-    public string Type { get; set; }  // msi, msix, exe, bat, ps1, etc
+    public string Type { get; set; } = null!;  // msi, msix, exe, bat, ps1, etc
 }

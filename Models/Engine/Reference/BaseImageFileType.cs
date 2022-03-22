@@ -10,5 +10,5 @@ public class BaseImageFileType
     public int Id { get; set; }
 
     [Required]
-    public string FileType { get; set; }  // WIM, ISO, ZIP, SWM, etc.
+    public string FileType { get; set; } = null!;  // WIM, ISO, ZIP, SWM, etc.
 }

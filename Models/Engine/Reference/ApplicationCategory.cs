@@ -9,5 +9,5 @@ public class ApplicationCategory
 {
     public int Id { get; set; }
     [Required]
-    public string Category { get; set; }
+    public string Category { get; set; } = null!;
 }

@@ -9,5 +9,5 @@ public class UninstallProcess
 {
     public int Id { get; set; }
     [Required]
-    public string Method { get; set; }  // msi, exe, exe2, inno, script
+    public string Method { get; set; } = null!;  // msi, exe, exe2, inno, script
 }

@@ -13,5 +13,5 @@ public class BaseImageEdition
     public Guid UUID { get; set; }
 
     [Required]
-    public string Edition { get; set; }  // Windows 10, Windows 11, Windows Server 2022, etc
+    public string Edition { get; set; } = null!;  // Windows 10, Windows 11, Windows Server 2022, etc
 }
