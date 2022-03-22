@@ -6,6 +6,7 @@ json-test.json
 post_dummy_data*
 app/appsettings.json
 private/*
+Makefile
 
 # app specific
 Migrations/*
