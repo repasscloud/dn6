@@ -9,16 +9,5 @@ public class TransferMethod
 {
     public int Id { get; set; }
     [Required]
-    public string Method { get; set; } = null!;
+    public string Method { get; set; } = null!;  // 'mc','ftp','stfp','ftpes','http','https','s3'
 }
-
-// public enum XftCode
-// {
-//     mc,
-//     ftp,
-//     sftp,
-//     ftpes,
-//     http,
-//     https,
-//     s3
-// }

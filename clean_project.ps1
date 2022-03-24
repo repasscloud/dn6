@@ -15,6 +15,5 @@ dotnet aspnet-codegenerator controller -name "UninstallProcessesController" -m "
     $i = $_
     dotnet aspnet-codegenerator controller -name "${i}sController" -m "${i}" -dc SharedDataContext -async -api -outDir Controllers
 }
-dotnet aspnet-codegenerator controller -name "DetectionProcessesController" -m "DetectionProcess" -dc SharedDataContext -async -api -outDir Controllers
 dotnet aspnet-codegenerator controller -name "CpuArchesController" -m "CpuArch" -dc SharedDataContext -async -api -outDir Controllers
 dotnet aspnet-codegenerator controller -name "CountriesController" -m "Country" -dc SharedDataContext -async -api -outDir Controllers

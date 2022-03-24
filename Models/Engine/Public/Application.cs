@@ -43,17 +43,17 @@ public class Application
     public string FollowUri { get; set; } = null!;
     public string AbsoluteUri { get; set; } = null!;
 
-    public int ExecutableId { get; set; }  // msi, exe, msix, zip, script
+    public int ExecutableId { get; set; }               // msi, exe, msix, zip, script
     public string InstallCmd { get; set; } = null!;
     public string? InstallArgs { get; set; }
-    public string? InstallScript { get; set; }  // ie - adobe that requires an install script to be passed to the pre-requirements first
+    public string? InstallScript { get; set; }          // ie - adobe that requires an install script to be passed to the pre-requirements first
     public string? DisplayName { get; set; }
     public string? DisplayPublisher { get; set; }
     public string? DisplayVersion { get; set; }
     public int PackageDetectionId { get; set; }
     public string? DetectScript { get; set; }
     public string? DetectValue { get; set; }
-    public int UninstallProcessId { get; set; }  // UninstallProcessId of '1' means "does not uninstall" -> drivers, for example
+    public int UninstallProcessId { get; set; }         // UninstallProcessId of '1' means "does not uninstall" -> drivers, for example
     public string? UninstallCmd { get; set; }
     public string? UninstallArgs { get; set; }
     public string? UninstallScript { get; set; }
@@ -65,8 +65,8 @@ public class Application
     public string[] Tags { get; set; } = null!;
     public string Summary { get; set; } = null!;
 
-    public int TransferMethodId { get; set; }  // mc, ftp, sftp, ftpes, http, https, s3, etc
-    public int LocaleId { get; set; }          // provider and the place
+    public int TransferMethodId { get; set; }           // mc, ftp, sftp, ftpes, http, https, s3, etc
+    public int LocaleId { get; set; }                   // provider and the place
     public string UriPath { get; set; } = null!;
 
     public bool Enabled { get; set; }
@@ -74,14 +74,4 @@ public class Application
 
     public int? VirusTotalScanResultsId { get; set; }
     public int? ExploitReportId { get; set; }
-}
-
-
-public enum CpuArch
-{
-    x86,
-    x64,
-    aarch32,
-    aarch64,
-    arm64
 }
